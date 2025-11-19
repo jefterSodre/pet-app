@@ -1,0 +1,57 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/backend/api.http b/backend/api.http
+new file mode 100644
+index 0000000000000000000000000000000000000000..363ddf6398a9c01219ef0ae307a3a5857c24629e
+--- /dev/null
++++ b/backend/api.http
+@@ -0,0 +1,47 @@
++### Register
++POST http://localhost:3000/auth/register
++Content-Type: application/json
++
++{
++  "name": "Tutor Test",
++  "email": "tutor@example.com",
++  "password": "123456",
++  "role": "tutor"
++}
++
++### Login
++POST http://localhost:3000/auth/login
++Content-Type: application/json
++
++{
++  "email": "tutor@example.com",
++  "password": "123456"
++}
++
++### Create pet (use bearer accessToken)
++POST http://localhost:3000/pets
++Authorization: Bearer {{accessToken}}
++Content-Type: application/json
++
++{
++  "name": "Rex",
++  "species": "cachorro",
++  "size": "M"
++}
++
++### List products
++GET http://localhost:3000/products
++
++### Create order
++POST http://localhost:3000/orders
++Authorization: Bearer {{accessToken}}
++Content-Type: application/json
++
++{
++  "partnerId": 1,
++  "addressId": 1,
++  "paymentMethod": "pix",
++  "items": [
++    { "productId": 1, "quantity": 2, "unitPrice": 20 }
++  ]
++}
+ 
+EOF
+)
