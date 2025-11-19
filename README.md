@@ -1,4 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/README.md b/README.md
 index 9aa298b67ef0fe7c1378dc69c5cb5864c8876be5..c5f77167aedac009eba3daabb0b3ba9d03e0d873 100644
 --- a/README.md
@@ -48,6 +47,3 @@ index 9aa298b67ef0fe7c1378dc69c5cb5864c8876be5..c5f77167aedac009eba3daabb0b3ba9d
 +
 +## Coleção de chamadas
 +- Exemplos de requisições no arquivo `backend/api.http` para uso com extensões REST Client ou Hoppscotch.
- 
-EOF
-)
